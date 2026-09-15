@@ -1,0 +1,60 @@
+name: build
+
+on:
+  push:
+    paths:
+      - 'gamemodes/**'
+      - 'Cargo.toml'
+      - '.github/**'
+      - '.config/**'
+  pull_request:
+    paths:
+      - 'gamemodes/**'
+      - 'Cargo.toml'
+      - '.github/**'
+      - '.config/**'
+
+jobs:
+  build:
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - os: ubuntu-latest
+            target: i686-unknown-linux-gnu
+            output: liberis.so
+          - os: windows-latest
+            target: i686-pc-windows-msvc
+            output: eris.dll
+
+    runs-on: ${{ matrix.os }}
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Instalar Rust
+        uses: dtolnay/rust-toolchain@stable
+        with:
+          targets: ${{ matrix.target }}
+
+      - name: Instalar dependências Linux (x86)
+        if: matrix.os == 'ubuntu-latest'
+        run: |
+          sudo dpkg --add-architecture i386
+          sudo apt-get update
+          sudo apt-get install -y gcc-multilib g++-multilib
+
+      - name: Build
+        run: cargo build --release --target ${{ matrix.target }}
+
+      - name: Renomear artefato
+        shell: bash
+        run: |
+          mkdir -p artifacts
+          cp target/${{ matrix.target }}/release/${{ matrix.output }} artifacts/
+
+      - name: Upload
+        uses: actions/upload-artifact@v4
+        with:
+          name: ${{ matrix.output }}
+          path: artifacts/${{ matrix.output }}
