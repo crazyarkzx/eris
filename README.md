@@ -8,6 +8,6 @@ Depois de usar o comando `make`, a gamemode vai aparecer em components/<BR>
 > a gamemode compila como plugin e não amx
 
 ```
-liberis.so // Linux
+liberis.so // linux
 eris.dll // windows
 ```
