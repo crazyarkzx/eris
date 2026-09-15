@@ -13,7 +13,7 @@ impl Default for GameEris {
 
 impl GameEris {
     fn on_load(&mut self) {
-    	let _ = samp::enable_logger!();     
+    	let _ = samp::enable_logger!();
         log::info!("[Eris] | Gamemode Carregada com Sucesso!");
     }
 
