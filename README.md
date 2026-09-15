@@ -1,16 +1,27 @@
-# Eris
-> Gamemode SA-MP
+<div align="center">
+  
+# 🪐 Eris 🪐
 
-pra codar essa gamemode, você precisa saber Rust, se não sabe, aprende e volta aqui depois, pois ela não e escrita em Pawn.
+</div>
 
-# Compilação
-pra compilar a gamemode, basta baixar ela e rodar o comando `make` no seu terminal<BR>
-> se não tiver o make instalado, abre seu terminal e digitar isso `apt install make`
+## Compilação
 
-Depois de usar o comando `make`, a gamemode vai aparecer em components/<BR>
-> a gamemode compila como plugin e não amx
+> [!IMPORTANT]
+> pra codar essa gamemode, você precisa saber rust, se você não sabe, então vai aprender, e aí depois você volta aqui, pois ela não e escrita em pawn.
 
-```
-liberis.so // linux
-eris.dll // windows
-```
+> 1 - Baixa a gamemode<BR>
+> 2 - Abre o terminal (na pasta da GM)<BR>
+> 3 - Executa o comando `make`
+
+> [!TIP]
+> Se você não tiver o `make` instalado, instala usando `apt install make`
+
+## Instalação
+
+Depois de compilar, a GM vai aparecer em `components/`
+> a GM compila como plugin e não amx
+
+| SO | Plugin |
+| :--- | :--- |
+| **Linux** | `liberis.so` |
+| **Windows** | `eris.dll` |
