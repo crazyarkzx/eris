@@ -1,2 +1,2 @@
 # Eris
-> Gamemode de SA-MP Escrita em Rust
+> Gamemode SA-MP
